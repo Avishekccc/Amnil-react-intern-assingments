@@ -21,10 +21,12 @@ a{
     background-color: beige;
 
 
+  
     h1{
         font-size: 18px;
         
     }
+   
 
     ul{
         display: flex;
