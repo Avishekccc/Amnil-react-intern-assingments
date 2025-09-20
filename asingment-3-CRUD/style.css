@@ -195,7 +195,7 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px; /* Ensures table doesn't get too cramped */
+  min-width: 310px; 
 }
 
 thead {
@@ -276,13 +276,13 @@ tbody tr:nth-child(even) {
 
   /* Add scroll indicator */
   .table-wrapper::after {
-    content: "← Scroll to see more →";
     display: block;
     text-align: center;
     padding: 8px;
     background-color: #e9ecef;
     font-size: 0.75rem;
     color: #6c757d;
+    overflow: scroll;
   }
 }
 

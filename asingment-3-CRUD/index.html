@@ -8,66 +8,65 @@
   </head>
   <body>
     <div class="container">
-     <section class="form-container">
+      <section class="form-container">
         <form id="contactForm">
           <h1 class="heading">User Data</h1>
-            <div class="form-group">
-                <label for="username" class="form-label">Username</label>
-                <input 
-                    type="text" 
-                    id="username" 
-                    name="username" 
-                    class="form-input" 
-                    placeholder="Enter username"
-                    required
-                >
-                <small id="usernameError" class="error"></small>
-            </div>
+          <div class="form-group">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="form-input"
+              placeholder="Enter username"
+              required
+            />
+            <small id="usernameError" class="error"></small>
+          </div>
 
-            <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    class="form-input" 
-                    placeholder="Enter email address"
-                    required
-                >
-                <small id="emailError" class="error"></small>
-                 
-            </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="Enter email address"
+              required
+            />
+            <small id="emailError" class="error"></small>
+          </div>
 
-            <div class="form-group">
-                <label for="phone" class="form-label">Phone Number</label>
-                <input 
-                    type="tel" 
-                    id="phone" 
-                    name="phone" 
-                    class="form-input" 
-                    placeholder="Enter phone number"
-                    required
-                >
-                <small id="phoneError" class="error"></small>
-            </div>
-            <button type="submit" class="add-btn">Add Contact</button>
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="form-input"
+              placeholder="Enter phone number"
+              required
+            />
+            <small id="phoneError" class="error"></small>
+          </div>
+          <button type="submit" class="add-btn">Add Contact</button>
         </form>
-    </section>
+      </section>
 
-       <section class="table-container">
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Number</th>
-                            <th>Action</th>  
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- <tr>
+      <section class="table-container">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Number</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr>
                             <td>001</td>
                             <td>John Smith</td>
                             <td>john.smith@company.com</td>
@@ -77,12 +76,12 @@
                               <button>delete</button>
                             </td>
                         </tr> -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
   </body>
 </html>
