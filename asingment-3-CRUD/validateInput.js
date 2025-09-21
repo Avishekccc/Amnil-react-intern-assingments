@@ -1,8 +1,8 @@
 // Validation
-const form = document.getElementById("contactForm");
+// const form = document.getElementById("contactForm");
 // const tableBody = document.querySelector("table tbody");
 
-export default function validateInput() {
+export default function validateInput(form) {
   let valid = true;
 
   const username = form.username.value.trim();

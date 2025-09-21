@@ -1,4 +1,5 @@
 // import { deleteContact, editContact } from "./updatedelete.js";
+import { editContact } from "./updatedelete.js";
 import validateInput from "./validateInput.js";
 
 const form = document.getElementById("contactForm");
@@ -7,10 +8,12 @@ const addbtn = document.querySelector(".add-btn");
 
 let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
 let editIndex = null;
+let deleteIndex = null;
 
 function save() {
   localStorage.setItem("contacts", JSON.stringify(contacts));
 }
+
 
 function renderDatatoTable() {
   tableBody.innerHTML = "";
@@ -29,53 +32,18 @@ function renderDatatoTable() {
 
     row
       .querySelector(".edit-btn")
-      .addEventListener("click", () => editContact(i));
+      .addEventListener("click", () => editContact(i,contacts,form,addbtn,editIndex));
     row
       .querySelector(".delete-btn")
-      .addEventListener("click", () => deleteContact(i));
+      .addEventListener("click", () => deleteContact(i ));
     tableBody.appendChild(row);
   });
 }
 
-// function validateInput() {
-//   let valid = true;
-
-//   const username = form.username.value.trim();
-//   const email = form.email.value.trim();
-//   const phone = form.phone.value.trim();
-
-//   const usernameError = document.getElementById("usernameError");
-//   const emailError = document.getElementById("emailError");
-//   const phoneError = document.getElementById("phoneError");
-
-//   usernameError.textContent = "";
-//   emailError.textContent = "";
-//   phoneError.textContent = "";
-
-//   if (username.length < 3) {
-//     usernameError.textContent = "Username must be at least 3 characters.";
-//     valid = false;
-//   }
-
-//   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//   if (!emailPattern.test(email)) {
-//     emailError.textContent = "Please enter a valid email.";
-//     valid = false;
-//   }
-
-//   const phonePattern = /^\d{10}$/;
-//   if (!phonePattern.test(phone)) {
-//     phoneError.textContent = "Phone must be 10 digits.";
-//     valid = false;
-//   }
-
-//   return valid;
-// }
-
 // handel form summit
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (!validateInput()) return;
+  if (!validateInput(form)) return;
 
   const username = form.username.value.trim();
   const email = form.email.value.trim();
@@ -97,21 +65,33 @@ form.addEventListener("submit", (e) => {
   save();
   renderDatatoTable();
   form.reset();
+  addbtn.innerText = "Add contact";
 });
 
-export function editContact(i) {
-  const c = contacts[i];
-  form.username.value = c.username;
-  form.email.value = c.email;
-  form.phone.value = c.phone;
-  editIndex = i;
-  addbtn.innerText = "Update contact";
+
+
+
+function deleteContact(i) {
+  deleteIndex = i; // store which contact to delete
+  const modal = document.getElementById("modal");
+  modal.style.display = "flex"; // open modal
 }
 
-export function deleteContact(i) {
-  contacts.splice(i, 1);
-  save();
-  renderDatatoTable();
-}
+// Handle confirm
+document.getElementById("confirmDelete").addEventListener("click", () => {
+  if (deleteIndex !== null) {
+    contacts.splice(deleteIndex, 1);
+    save();
+    renderDatatoTable();
+    deleteIndex = null;
+  }
+  document.getElementById("modal").style.display = "none";
+});
+
+// Handle cancel
+document.getElementById("cancelDelete").addEventListener("click", () => {
+  deleteIndex = null;
+  document.getElementById("modal").style.display = "none";
+});
 
 renderDatatoTable();
