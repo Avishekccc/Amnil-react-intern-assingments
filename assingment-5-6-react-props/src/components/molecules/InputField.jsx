@@ -1,16 +1,32 @@
-import React from 'react'
-import Input from '../atoms/input';
-import Label from '../atoms/Label';
+import React from "react";
+import PropTypes from "prop-types";
+import Input from "../atoms/input";
+import Label from "../atoms/Label";
 
-const InputField = ({ lable, inputType, placeHolder }) => {
+
+
+const InputField = ({ label, inputType, placeHolder, value, onChange }) => {
   return (
     <>
       <div>
-        <Label lable={lable}></Label>
-        <Input inputType={inputType} placeHolder={placeHolder}></Input>
+        <Label label={label}></Label>
+        <Input
+          inputType={inputType}
+          placeHolder={placeHolder}
+          value={value}
+          onChange={onChange}
+        ></Input>
       </div>
     </>
   );
 };
 
-export default InputField
+InputField.propTypes = {
+  label: PropTypes.string.isRequired,
+  inputType: PropTypes.string.isRequired,
+  placeHolder: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+};
+
+export default InputField;

@@ -1,7 +1,7 @@
-import React from 'react'
 import LoginForm from '../organism/LoginForm'
 
 const LoginPage = () => {
+  
   return (
     <div
       style={{
@@ -14,6 +14,7 @@ const LoginPage = () => {
       }}
     >
       <LoginForm />
+      
     </div>
   );
 }

@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import InputField from "../molecules/InputField";
 import Buttons from "../atoms/buttons";
 
 const LoginForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log("Email:",email, "Password:" ,password)
+  }
   return (
     <div
       style={{
@@ -25,18 +32,25 @@ const LoginForm = () => {
       >
         Sign In
       </h2>
-      <form style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+      <form
+        style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+        onSubmit={handleSubmit}
+      >
         <InputField
-          lable={"Email"}
-          inputType={"email"}
-          placeHolder={"Enter Your Email"}
+          label="Email"
+          inputType="email"
+          placeHolder="Enter Your Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         ></InputField>
         <InputField
-          lable={"Password"}
-          inputType={"password"}
-          placeHolder={"Enter Your Password"}
+          label="Password"
+          inputType="password"
+          placeHolder="Enter Your Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         ></InputField>
-        <Buttons buttonType={"submit"} buttonName={"Sing In"}></Buttons>
+        <Buttons buttonType="submit" buttonName="Sing In"></Buttons>
       </form>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Label = ({lable}) => {
+const Label = ({label}) => {
   return (
     <div>
       <label
@@ -11,9 +11,9 @@ const Label = ({lable}) => {
           fontSize: "14px",
           fontWeight: "500",
               }}
-              htmlFor={lable}
+              htmlFor={label}
       >
-        {lable}
+        {label}
       </label>
     </div>
   );
