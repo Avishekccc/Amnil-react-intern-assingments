@@ -1,0 +1,105 @@
+/* .carousel {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  text-align: center;
+  background: lightgray;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; } */
+
+
+.carousel{
+    position: relative;
+height: 500px;
+width: 100%;
+background-color: aqua;
+overflow: hidden;
+}
+
+.slides{
+    background-color: rgb(34, 131, 131);
+    display: flex;
+    /* transform: translateX(-100%); */
+    /* transition: ease-out 1s; */
+}
+
+.slide{
+    display: flex;
+ height:500px;
+ min-width: 100%;
+ background-color: rgb(35, 61, 61);
+ justify-content: center;
+ align-items: center;
+ cursor: grab;
+}
+
+.slide :nth-child(1) {
+    background-color: aqua;
+}
+.slide :nth-child(2) {
+    background-color: rgb(12, 59, 59);
+}
+
+/* .slide-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+} */
+
+.slide img {
+  user-drag: none;        /* Safari */
+  -webkit-user-drag: none; /* Chrome/Edge */
+  -moz-user-drag: none;    /* Firefox */
+  pointer-events: none;    /* lets mouse events go through */
+   height: 100%;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+button{
+    display: inline-block;
+    position: absolute;
+    border: none;
+    background-color: antiquewhite;
+    padding: 22px 18px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.prev{
+    top: 40%;
+    left: 20px;
+}
+
+.next{
+    top: 40%;
+    right: 20px;
+}
