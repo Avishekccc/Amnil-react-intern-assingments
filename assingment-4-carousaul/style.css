@@ -36,7 +36,7 @@ button {
 
 
 .carousel{
-    position: relative;
+ position: relative;
 height: 500px;
 width: 100%;
 background-color: aqua;
@@ -44,7 +44,7 @@ overflow: hidden;
 }
 
 .slides{
-    background-color: rgb(34, 131, 131);
+    /* background-color: rgb(34, 131, 131); */
     display: flex;
     /* transform: translateX(-100%); */
     /* transition: ease-out 1s; */
@@ -54,18 +54,13 @@ overflow: hidden;
     display: flex;
  height:500px;
  min-width: 100%;
- background-color: rgb(35, 61, 61);
+ /* background-color: rgb(35, 61, 61); */
  justify-content: center;
  align-items: center;
  cursor: grab;
 }
 
-.slide :nth-child(1) {
-    background-color: aqua;
-}
-.slide :nth-child(2) {
-    background-color: rgb(12, 59, 59);
-}
+
 
 /* .slide-img{
     height: 100%;
@@ -80,8 +75,7 @@ overflow: hidden;
   pointer-events: none;    /* lets mouse events go through */
    height: 100%;
     width: 100%;
-    object-fit: cover;
-    
+    object-fit: cover; 
 }
 
 button{

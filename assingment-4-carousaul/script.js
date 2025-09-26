@@ -181,7 +181,7 @@ slides.style.transform = `translateX(-${index * slideWidth}px)`;
 let intervalId;
 let isDragging = false;
 let startX = 0;
-let currentTranslate = 0;
+let currentTranslate = 1200;
 let prevTranslate = -index * slideWidth;
 let animationID;
 
@@ -286,5 +286,14 @@ slides.addEventListener("touchmove", touchMove);
 slides.addEventListener("touchend", touchEnd);
 
 // Start
-startAutoSlide();
+// startAutoSlide();
+window.onload = () => {
+  slideWidth = carousel.offsetWidth;
+  slides.style.transform = `translateX(-${index * slideWidth}px)`;
+  startAutoSlide();
+};
 
+window.addEventListener("resize", () => {
+  slideWidth = carousel.offsetWidth;
+  moveToSlide(index);
+});
