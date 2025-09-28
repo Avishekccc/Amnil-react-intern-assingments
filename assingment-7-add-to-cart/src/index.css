@@ -5,7 +5,24 @@
   font-family: "Poppins",sans-serif;
 }
 
+#root{
+  --bg:#fff;
+  --text: #000;
+}
+
+[data-theme="dark"]{
+  --bg:#2d2c2c;
+  --text:#fff;
+}
+
+body{
+  background-color: var(--bg);
+  color: var(--text);
+}
+
 .main{
   margin: 0 4%;
 }
+
+
 

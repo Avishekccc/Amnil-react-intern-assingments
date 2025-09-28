@@ -1,14 +1,14 @@
-import "./style.css"
-import { useCart } from '../../context/useCart';
-import type { ProductType } from '../Card.tsx';
+import "./style.css";
+import { useCart } from "../../hooks/useCart.ts";
+import type { ProductType } from "../Card.tsx";
 
 const CartCard = ({ images, title, price, id }: ProductType) => {
-  const {dispatch} = useCart()
- 
+  const { dispatch } = useCart();
+
   return (
     <div className="container">
       <div className="cart-card-wrapper">
-        <img src={images} alt="product-image" className='product-image' />
+        <img src={images} alt="product-image" className="product-image" />
         <div className="content-wrapper">
           <div className="content">
             <p className="cart-product-name">{title}</p>
@@ -18,7 +18,6 @@ const CartCard = ({ images, title, price, id }: ProductType) => {
           </div>
           <div className="add-cart-button">
             <button
-              
               onClick={() =>
                 dispatch({
                   type: "REMOVE",
@@ -33,6 +32,6 @@ const CartCard = ({ images, title, price, id }: ProductType) => {
       </div>
     </div>
   );
-}
+};
 
-export default CartCard
+export default CartCard;

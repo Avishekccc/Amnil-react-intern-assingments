@@ -1,12 +1,12 @@
-import CartCard from '../../components/CartItems'
-import { useCart } from '../../context/useCart';
-import "./style.css"
+import CartCard from "../../components/CartItems";
+import { useCart } from "../../hooks/useCart";
+import "./style.css";
 
 const Carts = () => {
-     const { cartState } = useCart();
+  const { cartState } = useCart();
   return (
-      <div className="cart-container">
-        <h2 className='cart-heading'>Cart list</h2>
+    <div className="cart-container">
+      <h2 className="cart-heading">Cart list</h2>
       {cartState.items.map((curritems) => {
         return (
           <CartCard
@@ -20,6 +20,6 @@ const Carts = () => {
       })}
     </div>
   );
-}
+};
 
-export default Carts
+export default Carts;

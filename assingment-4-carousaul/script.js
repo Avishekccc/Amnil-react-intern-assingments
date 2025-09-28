@@ -12,7 +12,6 @@
 //   slides.style.transform = `translateX(-${index * 100}%)`;
 // });
 
-
 // const slides = document.querySelector(".slides")
 // const slide = document.querySelectorAll(".slide").length
 
@@ -29,8 +28,6 @@
 // const slideWidth = 100;
 // let intervalId;
 
-
-
 // function next() {
 //   index = (index + 1) % slide;
 //   slides.style.transform = `translateX(-${index * 100}%)`;
@@ -40,7 +37,6 @@
 //     index = (index - 1 + slide) % slide;
 //     slides.style.transform = `translateX(-${index * 100}%)`;
 // }
-
 
 // function startAutoSlide() {
 //   intervalId = setInterval(next, 3000);
@@ -53,20 +49,12 @@
 // document.querySelector(".Carousel").addEventListener("mouseenter",stopAutoSlide)
 // document.querySelector(".Carousel").addEventListener("mouseleave",startAutoSlide)
 
-
 // startAutoSlide();
-
-
-
-
-
 
 // --------------------------------------
 
-
 // const slides = document.querySelector(".slides");
 // let slideItems = document.querySelectorAll(".slide");
-
 
 // const firstClone = slideItems[0].cloneNode(true);
 // const lastClone = slideItems[slideItems.length - 1].cloneNode(true);
@@ -74,9 +62,7 @@
 // slides.appendChild(firstClone);
 // slides.insertBefore(lastClone, slideItems[0]);
 
-
 // slideItems = document.querySelectorAll(".slide");
-
 
 // let index = 1;
 // const slideWidth = 100;
@@ -84,13 +70,11 @@
 
 // let intervalId; // store auto-slide timer
 
-
 // function moveToSlide(newIndex) {
 //   index = newIndex;
 //   slides.style.transition = "transform 1s ease";
 //   slides.style.transform = `translateX(-${index * slideWidth}%)`;
 // }
-
 
 // function checkLoop() {
 //   if (index === slideItems.length - 1) {
@@ -145,7 +129,6 @@
 //   // startAutoSlide();
 // });
 
-
 // document
 //   .querySelector(".carousel")
 //   .addEventListener("mouseenter", stopAutoSlide);
@@ -155,10 +138,7 @@
 
 // startAutoSlide();
 
-
-
 // latest-----------------------
-
 
 const carousel = document.querySelector(".carousel");
 const slides = document.querySelector(".slides");
@@ -173,19 +153,20 @@ slides.insertBefore(lastClone, slideItems[0]);
 // Update list
 slideItems = document.querySelectorAll(".slide");
 
-let index = 1; 
+
+let index = 1;
 const slideWidth = carousel.offsetWidth;
-console.log(slideWidth)
+console.log(slideWidth);
 slides.style.transform = `translateX(-${index * slideWidth}px)`;
 
 let intervalId;
 let isDragging = false;
 let startX = 0;
-let currentTranslate = 1200;
+let currentTranslate = 1800;
 let prevTranslate = -index * slideWidth;
 let animationID;
 
-console.log(animationID)
+console.log(animationID);
 
 // ---- Functions ----
 function setSliderPosition() {
@@ -218,13 +199,17 @@ function touchEnd() {
   // Snap to nearest slide
   const movedBy = currentTranslate - prevTranslate;
   if (movedBy < -150) {
-    index++; 
+    index++;
   } else if (movedBy > 150) {
-    index--; 
+    index--;
   }
+
+ 
 
   moveToSlide(index);
 }
+
+
 
 function moveToSlide(newIndex) {
   index = newIndex;
@@ -256,7 +241,7 @@ function checkLoop() {
 
 // ---- Auto slide ----
 function startAutoSlide() {
-  intervalId = setInterval(() => moveToSlide(index + 1), 3000);
+  intervalId = setInterval(() =>moveToSlide(index + 1), 3000);
 }
 function stopAutoSlide() {
   clearInterval(intervalId);
@@ -267,7 +252,10 @@ carousel.addEventListener("mouseenter", stopAutoSlide);
 carousel.addEventListener("mouseleave", startAutoSlide);
 document
   .querySelector(".next")
-  .addEventListener("click", () => moveToSlide(index + 1));
+  .addEventListener("click", () => {
+    moveToSlide(index + 1)
+    console.log(index);
+  });
 document
   .querySelector(".prev")
   .addEventListener("click", () => moveToSlide(index - 1));
@@ -281,19 +269,19 @@ slides.addEventListener("mouseleave", () => {
 });
 
 // Touch events (mobile)
-slides.addEventListener("touchstart", touchStart);
-slides.addEventListener("touchmove", touchMove);
+slides.addEventListener("touchstart", touchStart, { passive: false });
+slides.addEventListener("touchmove", touchMove, { passive: false });
 slides.addEventListener("touchend", touchEnd);
 
 // Start
 // startAutoSlide();
 window.onload = () => {
-  slideWidth = carousel.offsetWidth;
   slides.style.transform = `translateX(-${index * slideWidth}px)`;
   startAutoSlide();
-};
-
+  
 window.addEventListener("resize", () => {
   slideWidth = carousel.offsetWidth;
   moveToSlide(index);
 });
+};
+
