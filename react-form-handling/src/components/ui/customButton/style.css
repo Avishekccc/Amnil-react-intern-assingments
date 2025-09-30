@@ -1,0 +1,11 @@
+.primary{
+    background-color: rgb(66, 66, 255);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.primary:hover{
+    background-color: rgb(33, 33, 249);
+}

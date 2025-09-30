@@ -1,0 +1,36 @@
+.input-field-wrapper{
+    position: relative;
+
+}
+
+.eye-icon-wrapper{
+    position: absolute;
+    top: 14px;
+    right: 8px;
+    background: none;
+    border: none;
+}
+
+.text-field{
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 6px;
+    /* outline: none; */
+    min-width: 250px;
+
+}
+
+.text-field:active{
+    outline: rgb(90, 90, 230);
+    
+}
+
+.select-field{
+    margin-top: 6px;
+    padding: 8px ;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+}
+

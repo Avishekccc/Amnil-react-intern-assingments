@@ -1,0 +1,24 @@
+.heading-text{
+    font-size: 24px;
+    text-align: center;
+}
+
+.first-field{
+    flex: 1;
+}
+
+.second-field{
+    flex: 1;
+    margin-top: 0;
+}
+
+.flex-wrapper{
+    display: flex;
+    gap: 3px;
+    margin-top: 6px;
+}
+
+.error-text{
+    margin-top: 8px;
+    color: red;
+}
