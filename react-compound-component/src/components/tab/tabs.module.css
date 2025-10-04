@@ -1,0 +1,33 @@
+.tabcontainer {
+  width: 600px;
+}
+
+.tabheading {
+  position: relative;
+  display: flex;
+  gap: 28px;
+  padding: 4px 0px;
+  border-bottom: 2px solid rgb(71, 69, 69);
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  color: rgb(43, 42, 42);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.underline {
+  position: absolute;
+  bottom: -1px;
+  background-color: rgb(249, 23, 23);
+  height: 2px;
+  transition: all 0.3s;
+}
+
+.tabcontentContainer {
+  padding: 16px;
+  transition: all 1s;
+}
